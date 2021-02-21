@@ -32,11 +32,11 @@ with open(inputFilepath) as csvfile:
 
         #find greatest in profits date and ammount
         if (profitLoss > prePL) and (profitLoss - prePL > maxIncrease):
-            maxIncrease = (abs(profitLoss) + abs(prePL))
+            maxIncrease = profitLoss - prePL
             maxIncreaseMonth = row[0]
-            print("MaxIn", maxIncreaseMonth, profitLoss, prePL, maxIncrease)
-        if (profitLoss < prePL) and (abs(profitLoss) + abs(prePL)) > abs(maxDecrease):
-            maxDecrease = ((abs(profitLoss) + abs(prePL)) * -1)
+            #print("MaxIn", maxIncreaseMonth, profitLoss, prePL, maxIncrease)
+        if (profitLoss < prePL) and ((profitLoss - prePL) < maxDecrease):
+            maxDecrease = profitLoss - prePL
             maxDecreaseMonth = row[0]
             #print("MaxDe", maxDecreaseMonth, profitLoss, prePL, maxDecrease)
         
