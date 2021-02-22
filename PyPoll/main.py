@@ -6,6 +6,8 @@ import csv
 nVotes = 0
 #create an array to store candidate name and number of votes
 candidateInfo = []
+#variable to find the highest number of votes
+highVote = ["", 0]
 
 #output file path
 outputFilePath = "../python-challenge/PyPoll/analysis/analysis.txt"
@@ -26,7 +28,6 @@ with open(inputFilepath, "r") as csvfile:
         nVotes += 1
         #get the name of the candidate on the current row
         name = row[2]
-        print(name)
         #use a flag to see if the candidate is already on the array
         flag = False
         #check the array for the candidate
@@ -40,10 +41,17 @@ with open(inputFilepath, "r") as csvfile:
         if flag == False:
             candidateInfo.append([name, 1])
 
-print(candidateInfo)
-
 #print results to terminal
 print("Election Results")
 print("-------------------------")
 print("Total Votes:", nVotes)
-print("-------------------------")            
+print("-------------------------")
+#iterate over candidtates and print name, calculation of percentage of total votes, and total number of votes
+for candidates in candidateInfo:
+    print(candidates[0] + ": " + str(round((100 * candidates[1] / nVotes),3)) + "% (" + str(candidates[1]) + ")")
+    #during iteration, find the candidate with the highest number of votes
+    if candidates[1] > highVote[1]:
+            highVote = candidates
+print("-------------------------")
+print("Winner:", highVote[0])
+print("-------------------------")
