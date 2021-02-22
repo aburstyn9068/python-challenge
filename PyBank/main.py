@@ -15,6 +15,9 @@ maxIncrease = int(0)
 maxDecreaseMonth = str()
 maxDecrease = int(0)
 
+#output file path
+outputFilePath = "/Users/adamburstyn/Desktop/UM_Data_Bootcamp/python-challenge/PyBank/analysis/analysis.txt"
+
 #get csv data filepath
 inputFilepath = "/Users/adamburstyn/Desktop/UM_Data_Bootcamp/python-challenge/PyBank/Resources/budget_data.csv"
 #open the csv file
@@ -23,7 +26,7 @@ with open(inputFilepath, "r") as csvfile:
     
     #skip over the header
     next(csvreader)
-    
+
     #go through first month data to not include the calculation that updates the total change in profit/loss
     firstRow = next(csvreader)
     #calculate total number of months
@@ -63,7 +66,7 @@ with open(inputFilepath, "r") as csvfile:
 #calculate average change in profit/loss
 aveChangePL = totalChange / (nMonths - 1)
 
-#output results to terminal
+#print results to terminal
 print("Financial Analysis")
 print("----------------------------")
 print("Total Months:", nMonths)
@@ -71,4 +74,14 @@ print("Total: $" + str(netTotalPL))
 print("Average Change: $" + str(round(aveChangePL,2)))
 print("Greatest Increase in Profits:", maxIncreaseMonth, "($" + str(maxIncrease) + ")")
 print("Greatest Decrease in Profits:", maxDecreaseMonth, "($" + str(maxDecrease) + ")")
-        
+
+#create the analysis.txt file to write the results to
+with open(outputFilePath, "w") as analysis:
+    #print result to analysis.txt file
+    analysis.write("Financial Analysis\n")
+    analysis.write("----------------------------\n")
+    analysis.write("Total Months: " + str(nMonths) + "\n")
+    analysis.write("Total: $" + str(netTotalPL) + "\n")
+    analysis.write("Average Change: $" + str(round(aveChangePL,2)) + "\n")
+    analysis.write("Greatest Increase in Profits: " + str(maxIncreaseMonth) + " ($" + str(maxIncrease) + ")\n")
+    analysis.write("Greatest Decrease in Profits: " + str(maxDecreaseMonth) + " ($" + str(maxDecrease) + ")")
