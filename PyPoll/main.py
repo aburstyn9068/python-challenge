@@ -41,17 +41,42 @@ with open(inputFilepath, "r") as csvfile:
         if flag == False:
             candidateInfo.append([name, 1])
 
-#print results to terminal
-print("Election Results")
-print("-------------------------")
-print("Total Votes:", nVotes)
-print("-------------------------")
-#iterate over candidtates and print name, calculation of percentage of total votes, and total number of votes
-for candidates in candidateInfo:
-    print(candidates[0] + ": " + str(round((100 * candidates[1] / nVotes),3)) + "% (" + str(candidates[1]) + ")")
-    #during iteration, find the candidate with the highest number of votes
-    if candidates[1] > highVote[1]:
-            highVote = candidates
-print("-------------------------")
-print("Winner:", highVote[0])
-print("-------------------------")
+# #print results to terminal
+# print("Election Results")
+# print("-------------------------")
+# print("Total Votes:", nVotes)
+# print("-------------------------")
+# #iterate over candidtates and print name, calculation of percentage of total votes, and total number of votes
+# for candidates in candidateInfo:
+#     print(candidates[0] + ": " + str(round((100 * candidates[1] / nVotes),3)) + "% (" + str(candidates[1]) + ")")
+#     #during iteration, find the candidate with the highest number of votes
+#     if candidates[1] > highVote[1]:
+#             highVote = candidates
+# print("-------------------------")
+# print("Winner:", highVote[0])
+# print("-------------------------")
+
+#create the analysis.txt file to write the results to
+with open(outputFilePath, "w") as analysis:
+    #print result to analysis.txt file and terminal
+    analysis.write("Election Results\n")
+    print("Election Results")
+    analysis.write("-------------------------\n")
+    print("-------------------------")
+    analysis.write("Total Votes: " + str(nVotes) + "\n")
+    print("Total Votes:", nVotes)
+    analysis.write("-------------------------\n")
+    print("-------------------------")
+    #iterate over candidtates and print name, calculation of percentage of total votes, and total number of votes
+    for candidates in candidateInfo:
+        analysis.write(candidates[0] + ": " + str(round((100 * candidates[1] / nVotes),3)) + "% (" + str(candidates[1]) + ")\n")
+        print(candidates[0] + ": " + str(round((100 * candidates[1] / nVotes),3)) + "% (" + str(candidates[1]) + ")")
+        #during iteration, find the candidate with the highest number of votes
+        if candidates[1] > highVote[1]:
+                highVote = candidates
+    analysis.write("-------------------------\n")
+    print("-------------------------")
+    analysis.write("Winner: " + highVote[0] + "\n")
+    print("Winner: " + highVote[0])
+    analysis.write("-------------------------")
+    print("-------------------------")
