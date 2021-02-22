@@ -16,10 +16,14 @@ maxDecreaseMonth = str()
 maxDecrease = int(0)
 
 #output file path
-outputFilePath = "/Users/adamburstyn/Desktop/UM_Data_Bootcamp/python-challenge/PyBank/analysis/analysis.txt"
+#outputFilePath = os.path.join(os.getcwd(),"/analysis/analysis.txt")
+outputFilePath = "../python-challenge/PyBank/analysis/analysis.txt"
+#outputFilePath = "/Users/adamburstyn/Desktop/UM_Data_Bootcamp/python-challenge/PyBank/analysis/analysis.txt"
 
 #get csv data filepath
-inputFilepath = "/Users/adamburstyn/Desktop/UM_Data_Bootcamp/python-challenge/PyBank/Resources/budget_data.csv"
+#inputFilePath = os.path.join(os.getcwd(),"/Resources/budget_data.csv")
+inputFilepath = "../python-challenge/PyBank/Resources/budget_data.csv"
+#inputFilepath = "/Users/adamburstyn/Desktop/UM_Data_Bootcamp/python-challenge/PyBank/Resources/budget_data.csv"
 #open the csv file
 with open(inputFilepath, "r") as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
