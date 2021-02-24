@@ -1,7 +1,7 @@
 ################################################
 # Title: us_state_abbrev.py
 # Author: Haque, A
-# Date:
+# Date: 2016
 # Availability: https://gist.github.com/afhaque/29f0f4f37463c447770517a6c17d08f5#file-us_state_abbrev-py
 ################################################
 
