@@ -1,7 +1,7 @@
 # python-challenge
 Python Coding Project
 
-This repository contains python code to make analyses on "PyBank" and "PyPoll."
+This repository contains python code to make analyses on "PyBank" "PyPoll", "PyBoss", and "PyParagraph."
 
 PyBank reads a csv file that contains a companies financial records, and performs accounting analysis on the data.
 It calculates the number of months contained in the file, the net total profits/losses, the average profit/loss, the greatest increase in profits, and the greatest decrease in losses over the time period provided.

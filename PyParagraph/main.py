@@ -18,47 +18,20 @@ def paragraph_operations(inputFilepath, delim):
 
     #count the letters
     letters = re.findall("\w", paragraph)
-
-    #count the characters in the words
-    # letters = 0
-    # letterstest = 0
-    # for word in words:
-    #     letters += len(re.findall("\w", word))
-    #     letterstest += len(word)
     
-    # print(letters)
-    # print("***", letterstest)
-    # print("!!!", len(letterstest2))
-    #print(sentences)
-    
-    #print results
+    #print results to terminal
     print("Paragraph Analysis")
     print("-----------------")
     print("Approximate Word Count:", len(words))
     print("Approximate Sentence Count:", len(sentences))
     print("Average Letter Count:", round(len(letters) / len(words),1))
-    #print("***Average Letter Count:", round(letterstest / len(words),1))
-    #print("!!!Average Letter Count:", round(len(letterstest2) / len(words),1))
     print("Average Sentence Length:", len(words) / len(sentences))
 
-    # senTest = re.split("(?<=[.!?])\"\n+|(?<=[.!?])\n", paragraph)
-    # #senTest = re.split("(\.\s)|(\.\"\s)", paragraph)
-    # for i in range(len(senTest)):
-    #     print(i, senTest[i])
-    #     print()
-    # print(len(senTest))
-
-
 #setup variables to refernce files to be read locations
-inputFilepathsample = "../python-challenge/PyParagraph/Resources/sample.txt"
 inputFilepath1 = "../python-challenge/PyParagraph/Resources/paragraph_1.txt"
 inputFilepath2 = "../python-challenge/PyParagraph/Resources/paragraph_2.txt"
 
 #call the functions to analyze the paragraphs
-print("Sample")
-paragraph_operations(inputFilepathsample, " ")
-print()
-
 print("Paragraph 1")
 paragraph_operations(inputFilepath1, " ")
 print()
